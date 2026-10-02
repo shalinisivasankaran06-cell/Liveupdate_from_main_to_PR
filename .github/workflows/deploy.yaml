@@ -12,5 +12,5 @@ jobs:
       - name: Rebuild and restart container
         run: |
           docker build -t appsampleimage .
-          docker rm -f appsamplecontainer || true
+          docker rm -f mysamplecontainer || true
           docker run -d --name mysamplecontainer -p 9000:5000 appsampleimage
