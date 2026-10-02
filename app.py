@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Hi this is shalini i am testing the live update with compose delete  "
+    return "Hi this is shalini i am testing for github flow  "
 @app.route("/health")
 def health():
     return {"status": "UP"}
