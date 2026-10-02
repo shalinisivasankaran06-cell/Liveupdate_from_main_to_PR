@@ -4,21 +4,14 @@ Automatically deploy a Flask app to an AWS EC2 instance every time code is pushe
 
 ## How it works
 
-```
-Developer pushes to main
-        |
-        v
-GitHub Actions detects the push
-        |
-        v
-Self-hosted runner (on EC2) picks up the job
-        |
-        v
-Checkout code -> Build Docker image -> Replace running container
-        |
-        v
-App live at http://<ec2-public-ip>:9000
-```
+![CI/CD pipeline: push to main, GitHub Actions, runner on EC2 builds image and replaces the container](docs/pipeline.svg)
+
+1. A developer pushes a commit to `main`.
+2. GitHub triggers the **Deploy** workflow.
+3. The self-hosted runner on EC2 picks up the job and checks out the code.
+4. `docker build` creates a new image.
+5. The old container is removed and a new one starts from the new image.
+6. The updated app is live at `http://<ec2-public-ip>:9000`.
 
 ## Tech stack
 
@@ -34,6 +27,8 @@ App live at http://<ec2-public-ip>:9000
 ├── .github/
 │   └── workflows/
 │       └── deploy.yaml      # CI/CD pipeline
+├── docs/
+│   └── pipeline.svg         # Animated pipeline diagram
 ├── app.py                   # Flask application
 ├── Dockerfile               # Container image definition
 ├── requirements.txt         # Python dependencies
