@@ -18,4 +18,4 @@ jobs:
         run: |
           docker build --pull -t appsampleimage .
           docker rm -f mysamplecontainer || true
-        docker run -d --name mysamplecontainer -p 9000:5000 appsampleimage
+          docker run -d --name mysamplecontainer -p 9000:5000 appsampleimage
