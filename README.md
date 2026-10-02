@@ -4,7 +4,7 @@ Automatically deploy a Flask app to an AWS EC2 instance every time code is pushe
 
 ## How it works
 
-![CI/CD pipeline: push to main, GitHub Actions, runner on EC2 builds image and replaces the container](docs/pipeline.svg)
+![CI/CD pipeline: push to main, GitHub Actions, runner on EC2 builds image and replaces the container](pipeline.svg)
 
 1. A developer pushes a commit to `main`.
 2. GitHub triggers the **Deploy** workflow.
